@@ -34,11 +34,11 @@ Basic Implementation       |Translation API
 :-------------------------:|:-------------------------:
 ![](images/basicexample.gif)  |  ![](images/translation.gif)
 
-Dictionary Definitions     | 
+Dictionary Definitions (Glosbe or Wikipedia API!!)    | 
 :-------------------------:|
 ![](images/dictionary.gif)| 
 
-TTS Capability (Two Available API's!!)| 
+TTS Capability (TTS-API.COM OR VOICERSS(MASHAPE) API!!)| 
 :-------------------------:|
 ![](images/tts.gif)| 
 
