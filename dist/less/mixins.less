@@ -1,0 +1,35 @@
+@animT: 500ms;
+@baseIndex: 10000;
+@radius: 3px;
+@highlight-color: #2EB82E;
+@neutral-color: #DDD;
+@base-font-family: Roboto;
+@base-font-size: 12px;
+@title-font-weight: 500;
+@prefix: terms; 
+@btn-padding: 15px;
+@icon-size: 15px;
+@base-padding: 22px;
+@inner-padding: @btn-padding;
+.transition(@multiplier:1){
+    transition:all @animT * @multiplier;
+    -webkit-transition:all @animT * @multiplier;
+}
+.translate(@left, @top){ 
+    transform: translate(@left, @top);   
+     -ms-transform: translate(@left, @top); 
+   	-webkit-transform: translate(@left, @top);
+}
+.rotate(@deg){
+    -ms-transform: rotate(@deg);
+    -webkit-transform: rotate(@deg);
+    transform: rotate(@deg); 
+} 
+.noselect(){
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;   
+}

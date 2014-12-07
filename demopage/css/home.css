@@ -1,0 +1,53 @@
+h1,h2,h3,h4,h5,h6,*{
+     font-family:Roboto;  
+}
+h1{
+     font-weight:300;
+    font-size:2.5rem;
+}
+#title-wrap{
+    padding:11rem 0px 9rem;  
+    font-size:1rem;
+    text-align:center;
+}
+#title{
+    text-align:center;
+    font-size:5em;
+    font-weight:100;
+}
+#subtitle{
+    text-align:center;
+    font-size:2em;
+    font-weight:300;
+}
+.ui.main-segment{
+     border-radius:0px;   
+}
+#title-wrap .icon{
+     margin:0px;   
+}
+@media only screen and (min-width: 767px){
+    #main-columns .column{
+         height:8rem;   
+    }
+}
+#nav{
+    padding:1em 0px;
+    position:fixed;
+    left:0px;
+    width:100%;
+    box-shadow:0px 0px 10px rgba(0,0,0,0.5);
+    top:0px;
+    z-index:10;
+    background:#FFF;
+}
+.ui.segment{
+     margin:0px;   
+}
+.ui.segment.regular{
+     margin-bottom:20px;   
+}
+.fixed.top{
+     position:fixed;   
+    top:0px;
+}

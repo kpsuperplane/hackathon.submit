@@ -1,0 +1,233 @@
+@import 'mixins';
+.jq-@{prefix}{
+    &.@{prefix}-bg{
+        position:fixed;
+        left:0px;
+        top:0px;
+        width:100%;
+        height:100%;
+        z-index:@baseIndex;
+        background:rgba(0,0,0,0.3);
+        &.in{
+            .transition();
+            opacity:1;   
+        }
+        &.out{
+            .transition(); 
+            opacity:0;
+        }
+    }
+    &.@{prefix}-wrapper{
+        z-index:@baseIndex+1; 
+        overflow-y:auto;
+        position:fixed;
+        max-height:100%;
+        width:100%;
+        font-weight:@title-font-weight;
+        font-family:@base-font-family;
+        font-size:@base-font-size;
+        &.in{ 
+            .transition();
+             .translate(0,0);
+            opacity:1;
+        }
+        &.out{ 
+            .transition();
+            opacity:0;
+            .translate(0,1000px);
+        }
+    }
+    &.@{prefix}-modal{
+        margin:@base-padding;
+        padding:@base-padding;
+        background:#FFF; 
+        position:relative;
+        left:50%;
+        margin-left:-250px;
+        width:500px;
+        max-height:100%;
+        box-shadow:0px 2px 40px rgba(0,0,0,0.2);
+        border-radius:@radius;
+        .transition();
+        .@{prefix}-note small{
+            font-size:0.8em;
+            color:#777;
+        }
+        .@{prefix}-title{
+            font-size: 1.6em;
+        }
+        .@{prefix}-body{
+            .@{prefix}-yandex{
+                display:block;
+                margin:5px;
+                font-weight:700;
+                font-size:1em;
+            }
+            .@{prefix}-entry{
+                padding: @inner-padding 0px;
+                font-size:1.3em;
+                color:#666; 
+                background:#FFF;
+                .transition();
+                font-weight:400; 
+                position:relative;
+                border-bottom:1px solid #EEE; 
+                &:last-child{
+                     border-bottom-style:none;    
+                } 
+                &:hover, &.open{
+                    color:#000 !important; 
+                    .@{prefix}-chevron{
+                        color:#000 !important;   
+                    }
+                }
+                &.expand{
+                     cursor:pointer;   
+                }
+                &.open{
+                    font-weight:bold;
+                    .@{prefix}-chevron{
+                        .rotate(180deg);
+                    }
+                }
+                .@{prefix}-chevron{
+                    position:absolute;
+                    .transition(0.5);
+                    .rotate(0deg);
+                    top:@inner-padding + 8;
+                    right:0px;
+                    color:#AAA;
+                }
+                .@{prefix}-desc{
+                    margin-left:@icon-size + 30;   
+                    font-size:0.9em;
+                    cursor:auto;
+                    font-weight:400;
+                    display:none;
+                }
+                .@{prefix}-entry-icon{ 
+                    color:#FFF;
+                    text-align:center;
+                    box-sizing:content-box;
+                    font-size:@icon-size;
+                    line-height:@icon-size;
+                    padding:10px;
+                    width:@icon-size;
+                    height:@icon-size;
+                    display:inline-block;
+                    border-radius:100%;
+                    vertical-align:middle;
+                    margin-right:10px;
+                }
+            }
+        }
+        .@{prefix}-footer{
+            font-size: 1.2em;
+            padding-top:@base-padding;
+            text-align:right;
+            .@{prefix}-button{ 
+                background:@neutral-color;
+                color:#444;
+                margin-left:10px; 
+                border-radius:@radius;
+                border-style:none;
+                font-weight:bold;
+                cursor:pointer; 
+                padding:@btn-padding*0.6 @btn-padding;
+                .transition();
+                &:hover{
+                     background: darken(@neutral-color, 10%);   
+                }
+                &.highlight{
+                    color:#FFF;
+                    background: @highlight-color;
+                    &:hover{
+                        background: lighten(@highlight-color, 10%);   
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 550px) {
+        &.@{prefix}-modal{
+            width:auto;
+            display:block;
+            left:0px;
+            margin-left:@base-padding;
+            margin-right:@base-padding;
+        }
+    }
+}
+//--- LOADER ---//
+.@{prefix}-tooltip{
+    position:fixed;
+    z-index:@baseIndex + 2;
+    font-family:@base-font-family;
+    font-size:@base-font-size;
+    background:rgba(0,0,0,0.8);
+    max-width:200px;
+    box-shadow:0px 0px 10px rgba(0,0,0,0.4);
+    color:#FFF;
+    padding:@inner-padding/2;
+    border-radius:@radius;
+    p:first-child{
+        margin-top:0px;
+        padding-top:0px;
+    }
+    a{
+         color:#FFF;   
+    }
+}
+.@{prefix}-loader{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    background:rgba(255,255,255,0.7);
+    border-radius:@radius;
+    display:none;
+    .spinner {
+        margin: 100px auto 0;
+        width: 70px;
+        text-align: center;
+    }
+    .spinner > div {
+        width: 18px;
+        height: 18px;
+        background-color: #333;
+        border-radius: 100%;
+        display: inline-block;
+        -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+        animation: bouncedelay 1.4s infinite ease-in-out;
+        /* Prevent first frame from flickering when animation starts */
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+    .spinner .bounce1 {
+        -webkit-animation-delay: -0.32s;
+        animation-delay: -0.32s;
+    }
+    .spinner .bounce2 {
+        -webkit-animation-delay: -0.16s;
+        animation-delay: -0.16s;
+    }
+    @-webkit-keyframes bouncedelay {
+        0%, 80%, 100% {
+            -webkit-transform: scale(0.0)
+        }
+        40% {
+            -webkit-transform: scale(1.0)
+        }
+    }
+    @keyframes bouncedelay {
+        0%, 80%, 100% {
+            transform: scale(0.0);
+            -webkit-transform: scale(0.0);
+        }
+        40% {
+            transform: scale(1.0);
+            -webkit-transform: scale(1.0);
+        }
+    }   
+}  
