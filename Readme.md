@@ -1,3 +1,5 @@
+SEE THE OPEN SOURCE PROJECT HERE: https://github.com/kpsuperplane/Terms.JS
+
 # Unknown Exception's Koding Hackathon's Submission
 
 ### Terms.JS - A solution that's both informative to the user and safe to the content creator
